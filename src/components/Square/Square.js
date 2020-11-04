@@ -5,13 +5,14 @@ import { AppContext } from '../../context';
 
 export default function Square() {
   const { state } = useContext(AppContext);
-  const { width, height, activeColor } = state;
+  const { width, height, rotate, activeColor } = state;
 
   return (
     <SquareStyle
       className="square"
       width={width}
       height={height}
+      rotate={rotate}
       activeColor={activeColor}
     />
   );
@@ -22,4 +23,5 @@ const SquareStyle = styled.div`
   background: ${props => props.activeColor};
   height: ${props => `${props.height}px`};
   width: ${props => `${props.width}px`};
+  transform: ${props => `rotate(${props.rotate}deg)`};
 `;

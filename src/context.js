@@ -5,6 +5,7 @@ const AppContext = createContext();
 const initialState = {
   width: 320,
   height: 250,
+  rotate: 100,
   activeColor: '#F44336'
 };
 
@@ -14,6 +15,8 @@ const reducer = (state, action) => {
       return { ...state, width: action.payload };
     case 'height':
       return { ...state, height: action.payload };
+    case 'rotate':
+      return { ...state, rotate: action.payload };
     case 'activeColor':
       return { ...state, activeColor: action.payload };
     default:

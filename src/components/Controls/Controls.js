@@ -12,6 +12,7 @@ export default function Controls() {
 
   const setWidth = value => dispatch({ type: 'width', payload: value });
   const setHeight = value => dispatch({ type: 'height', payload: value });
+  const setRotate = value => dispatch({ type: 'rotate', payload: value });
   const setActiveColor = color =>
     dispatch({ type: 'activeColor', payload: color });
 
@@ -45,6 +46,15 @@ export default function Controls() {
           />
         </Fragment>
       ))}
+
+      <H2>rotation</H2>
+      <InputRange
+        maxValue={359}
+        minValue={0}
+        value={state.rotate}
+        onChange={rotate => setRotate(rotate)}
+        formatLabel={value => `${value} deg`}
+      />
 
       <H2>background color:</H2>
       <CirclePicker
